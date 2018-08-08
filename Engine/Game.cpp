@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <random>
 
 Game::Game( MainWindow& wnd )
 	:
@@ -44,12 +45,17 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<int> color(0,255);
+
 	for (int x = 0; x < brd.GetWidth(); x++)
 	{
 		for (int y = 0; y < brd.GetHeight(); y++)
 		{
 			Location loc(x,y);
-			brd.DrawCell(loc, Colors::Gray);
+			brd.DrawCell(loc, color(rng));
+
 		}
 	}
 }
