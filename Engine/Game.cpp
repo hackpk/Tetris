@@ -26,7 +26,8 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	brd(gfx)
+	brd(gfx),
+	tiles({2,2})
 {
 }
 
@@ -45,17 +46,5 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	std::random_device rd;
-	std::mt19937 rng(rd());
-	std::uniform_int_distribution<int> color(0,255);
-
-	for (int x = 0; x < brd.GetWidth(); x++)
-	{
-		for (int y = 0; y < brd.GetHeight(); y++)
-		{
-			Location loc(x,y);
-			brd.DrawCell(loc, color(rng));
-
-		}
-	}
+	tiles.Draw(brd, Colors::Gray);
 }

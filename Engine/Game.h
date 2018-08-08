@@ -24,6 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Board.h"
+#include "Tiles.h"
 
 class Game
 {
@@ -45,6 +46,7 @@ private:
 	/********************************/
 	/*  User Variables              */
 	Board brd;
+	Tiles tiles;
 
 	/********************************/
 
