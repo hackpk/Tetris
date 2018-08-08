@@ -3,12 +3,12 @@
 class Location
 {
 public:
-	Location(int in_x, int in_y)
-		:
-		x(in_x),
-		y(in_y)
+	void Add(const Location& delta_loc)
 	{
+		x += delta_loc.x;
+		y += delta_loc.y;
 	}
+
 	int x;
 	int y;
 };
